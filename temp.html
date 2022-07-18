@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+html, body
+{
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+</style>
+
+
+
+<div style="border: 1px ">
+<img id ="accept-button" class="center" style="user-select: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/OOjs_UI_icon_fullScreen.svg/1200px-OOjs_UI_icon_fullScreen.svg.png"      width="450" 
+     height="490" onclick="toggleFullScreen(document.body)"> 
+
+<video id="video" class="video" src="https://cdn.discordapp.com/attachments/989865489096392717/998437043254329374/poppinh.mp4"  width="0%" loop=""></video>
+<script>
+function toggleFullScreen(elem) {
+    // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+        if (elem.requestFullScreen) {
+            elem.requestFullScreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullScreen) {
+            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+document.getElementById("accept-button").style.display = "none";
+              var vid = document.getElementById("video");
+              video.setAttribute('width', '100%');
+
+                video.play();
+                videoClick();
+}
+</script>
+</head>
+</html>
